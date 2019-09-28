@@ -25,7 +25,35 @@ conda activate myenv
 conda install -c conda-forge airflow
 
 # Install airflow (pip)
+# https://airflow.apache.org/installation.html
 pip install apache-airflow
+----
+
+== Configuration
+[source,bash]
+----
+# Create PostgreSQL DB
+sudo -u postgres psql
+
+postgres=# CREATE DATABASE airflow;
+postgres=# CREATE USER myuser WITH ENCRYPTED PASSWORD 'mypass';
+postgres=# GRANT ALL PRIVILEGES ON DATABASE airflow to myuser;
+postgres=# ALTER DATABASE airflow OWNER TO myuser;
+
+# Use PostgreSQL instead of SQLite3
+vim ~/airflow/airflow.cfg
+
+    # The executor class that airflow should use. Choices include
+    # SequentialExecutor, LocalExecutor, CeleryExecutor
+    executor = LocalExecutor
+
+    # The SqlAlchemy connection string to the metadata database.
+    # SqlAlchemy supports many different database engine, more information
+    # their website
+    sql_alchemy_conn = postgresql+psycopg2://user:password@localhost:5432/airflow
+
+# Initialize DB
+airflow initdb
 ----
 
 == Removal
