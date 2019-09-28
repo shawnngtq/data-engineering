@@ -1,0 +1,48 @@
+Apache Airflow
+==============
+:encoding: utf-8
+:lang: en
+:layout: docs
+:author: Shawn Ng
+:revdate: 2019-09-28
+:toc:
+:toclevels: 5
+:toc-placement!:
+:nofooter:
+
+toc::[]
+
+== Installation
+[source,bash]
+----
+# Create dev environment
+conda create -n <myenv> python=3.7 anaconda
+
+# Start env
+conda activate <myenv>
+
+# Install airflow (conda)
+conda install -c conda-forge airflow
+
+# Install airflow (pip)
+pip install apache-airflow
+----
+
+== Removal
+[source,bash]
+----
+# Remove physical folder
+rm -r ~/airflow
+
+# Export env to yml
+conda env export > environment.yml
+
+# Remove dev env
+conda info --envs
+conda remove --name <myenv> --all
+----
+
+== References
+- https://airflow.apache.org/index.html
+- https://andana.me/2019/01/20/python-DAG.html
+- https://gist.github.com/rosiehoyem/9e111067fe4373eb701daf9e7abcc423
