@@ -16,10 +16,10 @@ toc::[]
 [source,bash]
 ----
 # Create dev environment
-conda create -n <myenv> python=3.7 anaconda
+conda create -n myenv python=3.7 anaconda
 
 # Start env
-conda activate <myenv>
+conda activate myenv
 
 # Install airflow (conda)
 conda install -c conda-forge airflow
@@ -39,7 +39,7 @@ conda env export > environment.yml
 
 # Remove dev env
 conda info --envs
-conda remove --name <myenv> --all
+conda remove --name myenv --all
 ----
 
 == References
