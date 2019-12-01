@@ -12,6 +12,18 @@ Apache Airflow
 
 toc::[]
 
+== Operators
+[options="header,footer"]
+|========================
+| Operator | Description
+| BashOperator | executes a bash command
+| PythonOperator | calls an arbitrary Python function
+| EmailOperator | sends an email
+| SimpleHttpOperator | sends an HTTP request
+| MySqlOperator, PostgresOperator | executes a SQL command
+| Sensor | waits for a certain time, file, database row, S3 key, etc…
+|========================
+
 == Installation
 [source,bash]
 ----
