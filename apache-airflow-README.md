@@ -1,32 +1,28 @@
-Apache Airflow
-==============
-:encoding: utf-8
-:lang: en
-:layout: docs
-:author: Shawn Ng
-:revdate: 2019-09-28
-:toc:
-:toclevels: 5
-:toc-placement!:
-:nofooter:
+# Apache Airflow
 
-toc::[]
+- [Apache Airflow](#apache-airflow)
+  - [Operators](#operators)
+  - [Installation](#installation)
+  - [Configuration](#configuration)
+  - [Removal](#removal)
+  - [Reference](#reference)
 
-== Operators
-[options="header,footer"]
-|========================
-| Operator | Description
-| BashOperator | executes a bash command
-| PythonOperator | calls an arbitrary Python function
-| EmailOperator | sends an email
-| SimpleHttpOperator | sends an HTTP request
-| MySqlOperator, PostgresOperator | executes a SQL command
-| Sensor | waits for a certain time, file, database row, S3 key, etc…
-|========================
+Open-source workflow management: https://github.com/apache/airflow
 
-== Installation
-[source,bash]
-----
+## Operators
+
+| Operator                        | Description                                                |
+| ------------------------------- | ---------------------------------------------------------- |
+| BashOperator                    | executes a bash command                                    |
+| PythonOperator                  | calls an arbitrary Python function                         |
+| EmailOperator                   | sends an email                                             |
+| SimpleHttpOperator              | sends an HTTP request                                      |
+| MySqlOperator, PostgresOperator | executes a SQL command                                     |
+| Sensor                          | waits for a certain time, file, database row, S3 key, etc… |
+
+## Installation
+
+```bash
 # Create dev environment
 conda create -n myenv python=3.7 anaconda
 
@@ -39,11 +35,11 @@ conda install -c conda-forge airflow
 # Install airflow (pip)
 # https://airflow.apache.org/installation.html
 pip install apache-airflow
-----
+```
 
-== Configuration
-[source,bash]
-----
+## Configuration
+
+```bash
 # Create PostgreSQL DB
 sudo -u postgres psql
 
@@ -66,11 +62,11 @@ vim ~/airflow/airflow.cfg
 
 # Initialize DB
 airflow initdb
-----
+```
 
-== Removal
-[source,bash]
-----
+## Removal
+
+```bash
 # Remove physical folder
 rm -r ~/airflow
 
@@ -80,9 +76,10 @@ conda env export > environment.yml
 # Remove dev env
 conda info --envs
 conda remove --name myenv --all
-----
+```
 
-== References
+## Reference
+
 - https://airflow.apache.org/index.html
 - https://andana.me/2019/01/20/python-DAG.html
 - https://gist.github.com/rosiehoyem/9e111067fe4373eb701daf9e7abcc423
